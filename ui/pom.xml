@@ -9,10 +9,10 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>compute-service</artifactId>
+    <artifactId>ui</artifactId>
 
     <properties>
-        <mainclz>example.compute.service.ComputeServiceApplicationBoot</mainclz>
+        <mainclz>example.ui.UIApplicationBoot</mainclz>
     </properties>
 
     <dependencies>
@@ -26,10 +26,22 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- springcloud -->
+        <!-- spring-cloud -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-ribbon</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
     </dependencies>
 
@@ -72,5 +84,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

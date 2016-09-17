@@ -3,6 +3,7 @@
 # 容器:
 #   - discovery:                  服务注册与发现节点
 #   - compute-service:            数值计算服务
+#   - ui:                         服务消费者
 # 作者: 应卓
 # 日期: 2016-09-17
 ########################################################################################################################
@@ -31,4 +32,20 @@ compute-service:
     - JAVA_OPTS="-Xms5000m -Xmx10000m"
   links:
       - discovery:discovery
+  entrypoint: dockerize -wait tcp://discovery:8761 -timeout 3600s
+  command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
+
+compute-service:
+  mem_limit: 1000000000
+  image: yingzhuo/microservice-ui:latest
+  ports:
+    - 8866:8866
+  volumes:
+    - /tmp:/tmp
+  environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - JAVA_OPTS="-Xms5000m -Xmx10000m"
+  links:
+      - discovery:discovery
+  entrypoint: dockerize -wait tcp://discovery:8761 -timeout 3600s
   command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
