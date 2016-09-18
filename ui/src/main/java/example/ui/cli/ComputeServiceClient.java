@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "COMPUTE-SERVICE")
+@FeignClient(name = "COMPUTE-SERVICE", fallback = ComputeServiceCircuitBreaker.class)
 public interface ComputeServiceClient {
 
     @RequestMapping(path = "/add", method = RequestMethod.GET)
