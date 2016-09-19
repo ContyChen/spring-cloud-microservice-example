@@ -2,6 +2,7 @@
 # 功能: 启动容器
 # 容器:
 #   - discovery:                  服务注册与发现节点
+#   - config-service:             配置服务
 #   - compute-service-a:          数值计算服务 (a)
 #   - compute-service-b:          数值计算服务 (b)
 #   - ui:                         服务消费者
@@ -21,6 +22,20 @@ discovery:
     - JAVA_OPTS="-Xms5000m -Xmx10000m"
   command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
 
+config-service:
+    mem_limit: 1000000000
+    image: yingzhuo/microservice-config-service:latest
+    ports:
+      - 8888:8888
+    volumes:
+      - /tmp:/tmp
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker,native
+      - JAVA_OPTS="-Xms5000m -Xmx10000m"
+    links:
+      - discovery
+    command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
+
 compute-service-a:
   mem_limit: 1000000000
   image: yingzhuo/microservice-compute-service:latest
@@ -34,7 +49,9 @@ compute-service-a:
     - JAVA_OPTS="-Xms5000m -Xmx10000m"
   links:
     - discovery
+    - config-service
   entrypoint: dockerize -wait tcp://discovery:8761 -timeout 3600s
+  entrypoint: dockerize -wait tcp://config-service:8888 -timeout 3600s
   command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
 
 compute-service-b:
@@ -50,7 +67,9 @@ compute-service-b:
     - JAVA_OPTS="-Xms5000m -Xmx10000m"
   links:
     - discovery
+    - config-service
   entrypoint: dockerize -wait tcp://discovery:8761 -timeout 3600s
+  entrypoint: dockerize -wait tcp://config-service:8888 -timeout 3600s
   command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
 
 ui:

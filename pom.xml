@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <modules>
         <module>compute-service</module>
+        <module>config-service</module>
         <module>discovery</module>
         <module>ui</module>
     </modules>

@@ -3,16 +3,29 @@ package example.compute.service.controller;
 import org.apache.commons.lang3.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+
 @RestController
 @RequestMapping("/")
+@RefreshScope
 public class ComputeController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ComputeController.class);
+
+    @Value("${fail-rate:1}")
+    private Integer failRate;
+
+    @PostConstruct
+    private void init() {
+        LOGGER.info("failRate: {}", failRate);
+    }
 
     @GetMapping("/add")
     public int add(@RequestParam("left") int left, @RequestParam("right") int right) {
@@ -54,9 +67,8 @@ public class ComputeController {
         return result;
     }
 
-    // 接口有100%的可能性会抛出异常
     private void randomRuntimeException() {
-        if (RandomUtils.nextInt(0, 99) == 1) {
+        if (RandomUtils.nextInt(0, 99) <= failRate) {
             throw new BussinessException();
         }
     }
