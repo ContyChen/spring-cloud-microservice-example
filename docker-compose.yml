@@ -5,6 +5,7 @@
 #   - config-service:             配置服务
 #   - compute-service-a:          数值计算服务 (a)
 #   - compute-service-b:          数值计算服务 (b)
+#   - api-gateway                 API网关
 #   - ui:                         服务消费者
 # 作者: 应卓
 # 日期: 2016-09-17
@@ -73,6 +74,22 @@ compute-service-b:
   entrypoint: dockerize -wait tcp://config-service:8888 -timeout 3600s
   command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
 
+api-gateway:
+  mem_limit: 1000000000
+  image: yingzhuo/microservice-api-gateway:latest
+  ports:
+    - 5555:5555
+  volumes:
+    - /tmp:/tmp
+  environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - JAVA_OPTS="-Xms5000m -Xmx10000m"
+  links:
+    - discovery
+    - compute-service-a
+    - compute-service-b
+  command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
+
 ui:
   mem_limit: 1000000000
   image: yingzhuo/microservice-ui:latest
@@ -85,7 +102,6 @@ ui:
     - JAVA_OPTS="-Xms5000m -Xmx10000m"
   links:
     - discovery
-    - compute-service-a
-    - compute-service-b
+    - api-gateway
   entrypoint: dockerize -wait tcp://discovery:8761 -timeout 3600s
   command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
