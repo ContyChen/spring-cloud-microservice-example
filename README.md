@@ -50,6 +50,8 @@ docker-compose -f /path/to/docker-compose.yml up -d
 * 访问`http://HOST:8761/dashboard`可查看被注册的服务的详情。
 * 访问`http://HOST:8866/ui`可查调用分布式服务并展示结果。
 
+> 注意: HOST指`docker`宿主机名或IP地址
+
 ## 许可证
 
 [Apache 2.0](LICENSE)
