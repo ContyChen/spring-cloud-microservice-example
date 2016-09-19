@@ -10,7 +10,7 @@
 * `api-gateway` - 服务网关
 * `discovery` - 服务注册与发现节点
 * `config-service` - 配置中心
-* `compute-service` - 整形数四则运算计算服务
+* `compute-service` - 整型数四则运算计算服务
 * `ui` - 服务的消费者
 
 为了方便起见，以上除`common`以外的模块，都将分别构建成`docker`镜像，并通过`docker-compose`工具启动。
