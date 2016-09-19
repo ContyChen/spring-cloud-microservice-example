@@ -8,6 +8,7 @@
     <artifactId>spring-cloud-microservice-example</artifactId>
     <version>1.0.0</version>
     <modules>
+        <module>common</module>
         <module>compute-service</module>
         <module>config-service</module>
         <module>discovery</module>
@@ -19,7 +20,6 @@
         <encoding>UTF-8</encoding>
         <java.version>1.8</java.version>
         <springboot.version>1.4.0.RELEASE</springboot.version>
-        <springboot.side.version>1.0.0</springboot.side.version>
         <spring.version>4.3.2.RELEASE</spring.version>
         <slf4j.version>1.7.21</slf4j.version>
         <jackson.version>2.8.2</jackson.version>

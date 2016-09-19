@@ -16,6 +16,13 @@
     </properties>
 
     <dependencies>
+        <!-- subproject -->
+        <dependency>
+            <groupId>com.github.yingzhuo</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <!-- springboot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
