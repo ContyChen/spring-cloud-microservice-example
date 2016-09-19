@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.PostConstruct;
 
 @RestController
-@RequestMapping("/")
 @RefreshScope
+@RequestMapping("/")
 public class ComputeController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ComputeController.class);
@@ -25,6 +25,11 @@ public class ComputeController {
     @PostConstruct
     private void init() {
         LOGGER.info("failRate: {}", failRate);
+    }
+
+    @GetMapping("fail-rate")
+    public Integer failRate() {
+        return failRate;
     }
 
     @GetMapping("/add")

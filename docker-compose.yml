@@ -29,6 +29,7 @@ config-service:
       - 8888:8888
     volumes:
       - /tmp:/tmp
+      - /home/yingzhuo/projects/spring-cloud-microservice-example/config-repo:/root/spring-cloud-microservice-example-config-repo
     environment:
       - SPRING_PROFILES_ACTIVE=docker,native
       - JAVA_OPTS="-Xms5000m -Xmx10000m"
