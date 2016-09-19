@@ -11,22 +11,22 @@
 * `discovery` - 服务注册与发现节点
 * `config-service` - 配置中心
 * `compute-service` - 计算服务
-* `ui` - WEB图形接口，即服务的消费者
+* `ui` - 服务的消费者
 
 为了方便起见，以上除`common`以外的模块，都将分别构建成`docker`镜像，并通过`docker-compose`工具启动。
 
-本项目包含以下features的演示
+本项目包含以下`feature`的演示
 
 1. 服务发现与注册
 2. 服务的消费
-3. 服务断熔机制
+3. 服务熔断机制
 4. 服务的负载均衡
 5. 配置中心化
 6. 服务网关
 
 ## 构建镜像
 
-下载代码到本地，使用一下`maven`指令即可完成。
+下载代码到本地，使用以下`maven`指令即可完成。
 
 ```bash
 mvn clean package
