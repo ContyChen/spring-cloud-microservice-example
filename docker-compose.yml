@@ -46,7 +46,7 @@ compute-service-a:
   volumes:
     - /tmp:/tmp
   environment:
-    - SPRING_PROFILES_ACTIVE=docker
+    - SPRING_PROFILES_ACTIVE=docker,security
     - SERVER_PORT=7777
     - JAVA_OPTS="-Xms5000m -Xmx10000m"
   links:
@@ -64,7 +64,7 @@ compute-service-b:
   volumes:
     - /tmp:/tmp
   environment:
-    - SPRING_PROFILES_ACTIVE=docker
+    - SPRING_PROFILES_ACTIVE=docker,security
     - SERVER_PORT=7778
     - JAVA_OPTS="-Xms5000m -Xmx10000m"
   links:
@@ -82,7 +82,7 @@ api-gateway:
   volumes:
     - /tmp:/tmp
   environment:
-    - SPRING_PROFILES_ACTIVE=docker
+    - SPRING_PROFILES_ACTIVE=docker,security
     - JAVA_OPTS="-Xms5000m -Xmx10000m"
   links:
     - discovery
