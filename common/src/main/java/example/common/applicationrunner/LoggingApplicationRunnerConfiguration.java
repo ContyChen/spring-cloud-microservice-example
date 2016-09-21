@@ -1,4 +1,4 @@
-package example.common.logging;
+package example.common.applicationrunner;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

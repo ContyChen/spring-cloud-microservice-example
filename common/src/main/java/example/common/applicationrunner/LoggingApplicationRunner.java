@@ -1,4 +1,4 @@
-package example.common.logging;
+package example.common.applicationrunner;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
