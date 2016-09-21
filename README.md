@@ -23,6 +23,7 @@
 4. 服务的负载均衡
 5. 配置中心化
 6. 服务网关
+7. 服务安全
 
 ## 构建镜像
 
@@ -48,7 +49,7 @@ docker-compose -f /path/to/docker-compose.yml up -d
 如果启动成功，
 
 * 访问`http://HOST:8761/dashboard`可查看被注册的服务的详情。
-* 访问`http://HOST:8866/ui?left=100&right=11`可查调用分布式服务并展示结果。
+* 访问`http://HOST:8866/ui?left=100&right=11`调用分布式服务并展示结果。
 
 > 注意: HOST指`docker`宿主机名或IP地址
 

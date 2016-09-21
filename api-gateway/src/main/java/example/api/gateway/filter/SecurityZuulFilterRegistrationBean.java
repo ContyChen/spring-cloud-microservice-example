@@ -7,12 +7,12 @@ import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LoggingZuulFilterRegistrationBean implements ApplicationRunner, Ordered {
+public class SecurityZuulFilterRegistrationBean implements ApplicationRunner, Ordered {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         final FilterRegistry filterRegistry = FilterRegistry.instance();
-        filterRegistry.put(LoggingZuulFilter.class.getSimpleName(), new LoggingZuulFilter());
+        filterRegistry.put(SecurityZuulFilter.class.getSimpleName(), new SecurityZuulFilter());
     }
 
     @Override
