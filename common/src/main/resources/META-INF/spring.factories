@@ -1,3 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 example.common.applicationrunner.LoggingApplicationRunnerConfiguration,\
+example.common.util.SpringUtilsConfiguration,\
 example.common.webfilter.RequestLoggingFilterConfiguration
