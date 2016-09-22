@@ -10,7 +10,7 @@
 * `api-gateway` - 服务网关
 * `discovery` - 服务注册与发现节点
 * `config-service` - 配置中心
-* `compute-service` - 整型数四则运算计算服务
+* `drama-service` - 电视剧查询服务
 * `ui` - 服务的消费者
 
 为了方便起见，以上除`common`以外的模块，都将分别构建成`docker`镜像，并通过`docker-compose`工具启动。
@@ -27,23 +27,15 @@
 
 ## 构建镜像
 
-下载代码到本地，使用以下`maven`指令即可完成。
-
 ```bash
-mvn clean package
-mvn -f api-gateway/pom.xml docker:build
-mvn -f discovery/pom.xml docker:build
-mvn -f config-service/pom.xml docker:build
-mvn -f compute-service/pom.xml docker:build
-mvn -f ui/pom.xml docker:build
+curl -X GET 'https://github.com/yingzhuo/spring-cloud-microservice-example/blob/master/build.sh' | bash
 ```
 
 ## 启动
 
-拷贝[docker-compose.yml](docker-compose.yml)到`docker`宿主机的某个目录。
-
 ```bash
-docker-compose -f /path/to/docker-compose.yml up -d
+curl -X GET 'https://raw.githubusercontent.com/yingzhuo/spring-cloud-microservice-example/master/docker-compose.yml' > docker-compose.yml
+docker-compose up -d
 ```
 
 如果启动成功，

@@ -17,43 +17,18 @@
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
-            <td>操作数 (L)</td>
-            <td>运算符</td>
-            <td>操作数 (R)</td>
-            <td>结果</td>
+            <td>ID</td>
+            <td>Name</td>
         </tr>
     </thead>
+
     <tbody>
+        <#list dramas as drama>
         <tr>
-            <td>${left}</td>
-            <td>+</td>
-            <td>${right}</td>
-            <td>${add}</td>
+            <td>${drama.id}</td>
+            <td>${drama.name}</td>
         </tr>
-        <tr>
-            <td>${left}</td>
-            <td>-</td>
-            <td>${right}</td>
-            <td>${minus}</td>
-        </tr>
-        <tr>
-            <td>${left}</td>
-            <td>*</td>
-            <td>${right}</td>
-            <td>${time}</td>
-        </tr>
-        <tr>
-            <td>${left}</td>
-            <td>/</td>
-            <td>${right}</td>
-            <td>${div}</td>
-        </tr>
-        <tr>
-            <td>${left}</td>
-            <td>%</td>
-            <td>${right}</td>
-            <td>${mod}</td>
-        </tr>
+        </#list>
     </tbody>
 </table>
 </body>

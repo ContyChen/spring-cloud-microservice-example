@@ -10,7 +10,6 @@
     <modules>
         <module>api-gateway</module>
         <module>common</module>
-        <module>compute-service</module>
         <module>config-service</module>
         <module>discovery</module>
         <module>drama-service</module>
