@@ -28,13 +28,13 @@
 ## 构建镜像
 
 ```bash
-curl -X GET 'https://github.com/yingzhuo/spring-cloud-microservice-example/blob/master/build.sh' | bash
+curl -X 'GET' -sSL 'https://raw.githubusercontent.com/yingzhuo/spring-cloud-microservice-example/master/build.sh' | bash
 ```
 
 ## 启动
 
 ```bash
-curl -X GET 'https://raw.githubusercontent.com/yingzhuo/spring-cloud-microservice-example/master/docker-compose.yml' > docker-compose.yml
+curl -X 'GET' -sSL 'https://raw.githubusercontent.com/yingzhuo/spring-cloud-microservice-example/master/docker-compose.yml' > docker-compose.yml
 docker-compose up -d
 ```
 
