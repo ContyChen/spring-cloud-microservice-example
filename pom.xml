@@ -13,6 +13,7 @@
         <module>compute-service</module>
         <module>config-service</module>
         <module>discovery</module>
+        <module>drama-service</module>
         <module>ui</module>
     </modules>
     <packaging>pom</packaging>
@@ -374,6 +375,13 @@
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
                 <version>2.3.23</version>
+            </dependency>
+
+            <!-- db -->
+            <dependency>
+                <groupId>org.hsqldb</groupId>
+                <artifactId>hsqldb</artifactId>
+                <version>2.3.4</version>
             </dependency>
 
             <!-- servlet-api -->
