@@ -104,3 +104,18 @@ ui:
     - api-gateway
   entrypoint: dockerize -wait tcp://discovery:8761 -timeout 3600s
   command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"
+
+hystrix-dashboard:
+  mem_limit: 1000000000
+  image: yingzhuo/microservice-hystrix-dashboard:latest
+  ports:
+    - 8030:8030
+  volumes:
+    - /tmp:/tmp
+  environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - JAVA_OPTS="-Xms5000m -Xmx10000m"
+  links:
+    - discovery
+  entrypoint: dockerize -wait tcp://discovery:8761 -timeout 3600s
+  command: bash -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar"

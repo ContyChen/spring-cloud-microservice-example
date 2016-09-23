@@ -5,12 +5,14 @@ import example.drama.service.dao.DramaDao;
 import example.drama.service.service.DramaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RefreshScope
 public class DramaServiceImpl implements DramaService {
 
     private final DramaDao dramaDao;

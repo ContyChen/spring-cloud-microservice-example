@@ -12,6 +12,7 @@
 * `config-service` - 配置中心
 * `drama-service` - 电视剧查询服务
 * `ui` - 服务的消费者
+* `hystrix-dashboard` - 服务监控面板
 
 为了方便起见，以上除`common`以外的模块，都将分别构建成`docker`镜像，并通过`docker-compose`工具启动。
 
@@ -47,14 +48,15 @@ docker-compose up -d
 
 ## 总览
 
-服务名称        | 功能            | 默认占用端口号 | docker宿主机端口映射 | 权限验证 (Basic Authentication)
----------------|-----------------|-------------|-------------------|------------
-discovery      | 服务发现与注册服务 | 8761        | 8761              | admin:admin
-api-gateway    | 服务网关         | 5555        | 5555              | admin:admin
-config-service | 配置服务         | 8888        | 8888              | (none)
-drama-service-a| 电视剧查询服务(甲)| 7779        | 7779              | admin:admin
-drama-service-b| 电视剧查询服务(乙)| 7780        | 7780              | admin:admin
-ui             | web页面服务      | 8866        | 8866              | (none)
+服务名称           | 功能            | 默认占用端口号 | docker宿主机端口映射 | 权限验证 (Basic Authentication)
+------------------|-----------------|-------------|-------------------|------------
+discovery         | 服务发现与注册服务 | 8761        | 8761              | admin:admin
+api-gateway       | 服务网关         | 5555        | 5555              | admin:admin
+config-service    | 配置服务         | 8888        | 8888              | (none)
+drama-service-a   | 电视剧查询服务(甲)| 7779        | 7779              | admin:admin
+drama-service-b   | 电视剧查询服务(乙)| 7780        | 7780              | admin:admin
+ui                | web页面服务      | 8866        | 8866              | (none)
+hystrix-dashboard | 服务监控面板     | 8030        | 8030              | (none)
 
 ## 许可证
 
