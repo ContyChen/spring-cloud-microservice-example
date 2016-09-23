@@ -18,8 +18,7 @@ public class UIController {
     private DramaService dramaService;
 
     @GetMapping(path = "/ui")
-    public String ui(
-            ModelMap modelMap) {
+    public String ui(ModelMap modelMap) {
         final List<Drama> dramas = dramaService.findAllDramas();
         modelMap.put("dramas", dramas);
         return "ui";

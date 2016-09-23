@@ -4,6 +4,7 @@ import example.common.entity.Drama;
 import example.drama.service.dao.DramaDao;
 import example.drama.service.service.DramaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,9 @@ public class DramaServiceImpl implements DramaService {
 
     private final DramaDao dramaDao;
 
+    @Value("${default-drama-sort-property:id}")
+    private String defaultDramaSortProperty;
+
     @Autowired
     public DramaServiceImpl(DramaDao dramaDao) {
         this.dramaDao = dramaDao;
@@ -21,7 +25,7 @@ public class DramaServiceImpl implements DramaService {
 
     @Override
     public List<Drama> findAllDramas() {
-        return dramaDao.findAll(new Sort(Sort.Direction.ASC, "name"));
+        return dramaDao.findAll(new Sort(Sort.Direction.ASC, defaultDramaSortProperty));
     }
 
 }

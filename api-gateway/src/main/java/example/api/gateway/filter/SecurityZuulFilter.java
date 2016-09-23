@@ -14,7 +14,7 @@ public class SecurityZuulFilter extends ZuulFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityZuulFilter.class);
     private static final String USERNAME = "admin";
     private static final String PASSWORD = "admin";
-    private static final String AUTHORIZATION_HEADER = "Basic " + Base64.encodeBase64String((USERNAME+ ":" + PASSWORD).getBytes(Charset.forName("UTF-8")));
+    private static final String AUTHORIZATION_HEADER = "Basic " + Base64.encodeBase64String((USERNAME+ ":" + PASSWORD).getBytes(Charset.forName("UTF-8"))); // YWRtaW46YWRtaW4=
 
     @Override
     public String filterType() {
@@ -36,7 +36,6 @@ public class SecurityZuulFilter extends ZuulFilter {
         final RequestContext ctx = RequestContext.getCurrentContext();
         ctx.addZuulRequestHeader("Authorization", AUTHORIZATION_HEADER);
         LOGGER.trace("设置请求头 {}:{} (uri: {})", "Authorization", AUTHORIZATION_HEADER, ctx.getRequest().getRequestURI());
-        // YWRtaW46YWRtaW4=
         return NULL;
     }
 
