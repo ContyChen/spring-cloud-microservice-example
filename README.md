@@ -44,6 +44,7 @@ docker-compose up -d
 
 * 访问`http://HOST:8761/dashboard`可查看被注册的服务的详情。
 * 访问`http://HOST:8866/ui?left=100&right=11`调用分布式服务并展示结果。
+* 访问`http://HOST:8030/hystrix.stream`可查看监控页面。
 
 > 注意: HOST指`docker`宿主机名或IP地址
 
@@ -58,6 +59,7 @@ drama-service-a   | 电视剧查询服务(甲)| 7779        | 7779              
 drama-service-b   | 电视剧查询服务(乙)| 7780        | 7780              | admin:admin
 ui                | web页面服务      | 8866        | 8866              | (none)
 hystrix-dashboard | 服务监控面板     | 8030        | 8030              | (none)
+hystrix-turbine   | 服务监控服务     | 8031        | 8031              | (none)
 
 ## 许可证
 

@@ -7,6 +7,7 @@ docker rmi yingzhuo/microservice-drama-service:latest 2> /dev/null
 docker rmi yingzhuo/microservice-ui:latest 2> /dev/null
 docker rmi yingzhuo/microservice-api-gateway:latest 2> /dev/null
 docker rim yingzhuo/microservice-hystrix-dashboard:latest 2> /dev/null
+docker rim yingzhuo/microservice-hystrix-turbine:latest 2> /dev/null
 
 # 重新下载源代码
 rm -rf spring-cloud-microservice-example/
@@ -20,6 +21,7 @@ mvn -f spring-cloud-microservice-example/ui/pom.xml docker:build
 mvn -f spring-cloud-microservice-example/config-service/pom.xml docker:build
 mvn -f spring-cloud-microservice-example/api-gateway/pom.xml docker:build
 mvn -f spring-cloud-microservice-example/hystrix-dashboard/pom.xml docker:build
+mvn -f spring-cloud-microservice-example/hystrix-turbine/pom.xml docker:build
 mvn -f spring-cloud-microservice-example/pom.xml clean -q
 
 # 压缩源代码目录

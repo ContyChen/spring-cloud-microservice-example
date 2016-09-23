@@ -9,10 +9,10 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>hystrix-dashboard</artifactId>
+    <artifactId>hystrix-turbine</artifactId>
 
     <properties>
-        <mainclz>example.hystrix.dashboard.HystrixDashboardApplicationBoot</mainclz>
+        <mainclz>example.hystrix.turbine.HystrixTurbineApplicationBoot</mainclz>
     </properties>
 
     <dependencies>
@@ -26,17 +26,28 @@
         <!-- springcloud -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-starter-turbine</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+            <artifactId>spring-cloud-netflix-turbine</artifactId>
         </dependency>
 
         <!-- springboot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- other -->
+        <dependency>
+            <groupId>com.netflix.servo</groupId>
+            <artifactId>servo-core</artifactId>
+            <version>0.12.11</version>
         </dependency>
     </dependencies>
 
