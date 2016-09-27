@@ -14,6 +14,8 @@
 * `ui` - 服务的消费者
 * `hystrix-dashboard` - 服务监控面板
 
+> 注意: 本项目由Java和Kotlin混合编程。
+
 为了方便起见，以上除`common`以外的模块，都将分别构建成`docker`镜像，并通过`docker-compose`工具启动。
 
 本项目包含以下`feature`的演示
@@ -43,7 +45,7 @@ docker-compose up -d
 如果启动成功，
 
 * 访问`http://HOST:8761/dashboard`可查看被注册的服务的详情。
-* 访问`http://HOST:8866/ui?left=100&right=11`调用分布式服务并展示结果。
+* 访问`http://HOST:8866/ui`调用分布式服务并展示结果。
 * 访问`http://HOST:8030/hystrix.stream`可查看监控页面。
 
 > 注意: HOST指`docker`宿主机名或IP地址
