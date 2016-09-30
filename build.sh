@@ -1,3 +1,7 @@
+########################################################################################################################
+# 功能: 构建本项目所有镜像
+# 作者: 应卓
+########################################################################################################################
 #!/usr/bin/env bash
 
 # 删除旧镜像
@@ -6,8 +10,8 @@ docker rmi yingzhuo/microservice-config-service:latest 2> /dev/null
 docker rmi yingzhuo/microservice-drama-service:latest 2> /dev/null
 docker rmi yingzhuo/microservice-ui:latest 2> /dev/null
 docker rmi yingzhuo/microservice-api-gateway:latest 2> /dev/null
-docker rim yingzhuo/microservice-hystrix-dashboard:latest 2> /dev/null
-docker rim yingzhuo/microservice-hystrix-turbine:latest 2> /dev/null
+docker rmi yingzhuo/microservice-hystrix-dashboard:latest 2> /dev/null
+docker rmi yingzhuo/microservice-hystrix-turbine:latest 2> /dev/null
 
 # 重新下载源代码
 rm -rf spring-cloud-microservice-example/
